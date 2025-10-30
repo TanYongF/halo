@@ -34,7 +34,13 @@ public enum OtherProperties implements PropertyEnum {
     /**
      * Default post editor.
      */
-    DEFAULT_EDITOR("default_editor", PostEditorType.class, PostEditorType.MARKDOWN.name());
+    DEFAULT_EDITOR("default_editor", PostEditorType.class, PostEditorType.MARKDOWN.name()),
+
+
+    /**
+     * Default ads.txt
+     */
+    DEFAULT_ADS_TXT("ads_txt", String.class, "");
 
     private final String value;
 

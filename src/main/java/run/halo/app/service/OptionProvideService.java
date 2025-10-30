@@ -534,4 +534,12 @@ public interface OptionProvideService {
         return getByPropertyOrDefault(OtherProperties.GLOBAL_ABSOLUTE_PATH_ENABLED, Boolean.class,
             true);
     }
+
+    /**
+     * Get default ads txt.
+     * @return ads txt
+     */
+    default String getDefaultAdsTxt() {
+        return getByPropertyOrDefault(OtherProperties.DEFAULT_ADS_TXT, String.class, "no ads.txt");
+    }
 }

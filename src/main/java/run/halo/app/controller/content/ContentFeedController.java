@@ -227,6 +227,22 @@ public class ContentFeedController {
     }
 
     /**
+     * Get ads.txt
+     *
+     * @param model model
+     * @return ads.txt content
+     * @throws IOException      IOException
+     * @throws TemplateException TemplateException
+     */
+    @GetMapping(value="ads.txt", produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public String adsTxt(Model model) throws IOException, TemplateException {
+        model.addAttribute("ads_txt", optionService.getDefaultAdsTxt());
+        Template template = freeMarker.getConfiguration().getTemplate("common/web/ads.ftl");
+        return FreeMarkerTemplateUtils.processTemplateIntoString(template, model);
+    }
+
+    /**
      * Builds page info for post.
      *
      * @param size page size

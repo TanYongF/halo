@@ -170,6 +170,7 @@ public class FreemarkerConfigAwareListener {
             .setSharedVariable("categories_url", context + optionService.getCategoriesPrefix());
         configuration.setSharedVariable("tags_url", context + optionService.getTagsPrefix());
 
+        configuration.setSharedVariable("ads_txt", optionService.getDefaultAdsTxt());
         log.debug("Loaded options");
     }
 
