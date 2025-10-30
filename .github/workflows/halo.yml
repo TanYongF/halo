@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     # Default steps
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: Set up JDK 11
@@ -52,7 +52,7 @@ jobs:
           sed -i "s/version=.*-SNAPSHOT$/version=$version/1" gradle.properties
           ./gradlew clean build -x test
       - name: Archive halo jar
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: halo-jar
           path: |
@@ -65,7 +65,7 @@ jobs:
     if: github.event_name == 'release'
     steps:
       - name: Download halo jar
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: halo-jar
           path: build/libs
@@ -80,7 +80,7 @@ jobs:
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >> $GITHUB_ENV
           echo "RELEASE_ID=${{ github.event.release.id }}" >> $GITHUB_ENV
       - name: Upload a Release Asset
-        uses: actions/github-script@v2
+        uses: actions/github-script@v6
         if: github.event_name == 'release'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
