@@ -80,7 +80,7 @@ jobs:
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >> $GITHUB_ENV
           echo "RELEASE_ID=${{ github.event.release.id }}" >> $GITHUB_ENV
       - name: Upload a Release Asset
-        uses: actions/github-script@v6
+        uses: actions/github-script@v4
         if: github.event_name == 'release'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
