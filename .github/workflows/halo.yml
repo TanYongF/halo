@@ -1,5 +1,8 @@
 name: Halo CI
 
+permissions:
+    contents: write  # ✅ 必加，否则不能上传 release asset
+
 on:
   pull_request:
     paths:
